@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require("path")
 
 function read() {
-    console.log('testing....    ')
+    
     fs.readFile(path.join(__dirname, "../db/db.json"), "utf8", function (error, data) {
         if (error) {
             return console.log(error);
@@ -41,14 +41,24 @@ module.exports = function (app) {
     // ---------------------------------------------------------------------------
 
     app.post("/api/notes", function (req, res) {
-        fs.appendFile(path.join(__dirname, "../assets/notes.html"), "utf8", function (error, data) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log(data);
-            res.json(data)
-        })
+        console.log(req.body)
+        console.log("yo")
+        // fs.appendFile(path.join(__dirname, "../public/notes.html"), "utf8", function (error, data) {
+        //     if (error) {
+        //         return console.log(error);
+        //     }
+        //     console.log(data);
+        //     res.json(data)
+        // })
     });
+   
+
+// fs.appendFile('test.txt', 'Hello World!', function (err) { 
+//                         if (err)
+//         console.log(err);
+//                         else
+//         console.log('Append operation complete.');
+// });
 
     // app.post("/api/notes", function(req, res) {
     //     let newNote = req.body;
