@@ -1,8 +1,10 @@
 // ===============================================================================
 // REQUIRES
 //========================================================
+
 const fs = require('fs')
 const path = require("path")
+// const express = require("express").Router();
 
 function read() {
     
@@ -18,13 +20,13 @@ function read() {
 // ==============JSON PARSE, STRINGIFY
 const dbNotes = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../db/db.json"), (err, data) => {
-        if (err) throw err;
+        if (error) throw err;
     })
     );
     
-    const dbUpdate = dbNotes => {
+    const dbNewNotes = dbNotes => {
     fs.writeFileSync(
-        path.join(__dirname, "/db/db.json"),
+        path.join(__dirname, "../db/db.json"),
         JSON.stringify(dbNotes),
         err => {
         if (err) throw err;
@@ -37,10 +39,6 @@ const dbNotes = JSON.parse(
 
 module.exports = function (app) {
     // ==================API GET Requests
-    // Below code handles when users "visit" a page.
-    // In each of the below cases when a user visits a link
-    // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-    // ---------------------------------------------------------------------------
 
     app.get("/api/notes", function (req, res) {
         fs.readFile(path.join(__dirname, "../db/db.json"), "utf8", function (error, data) {
@@ -54,53 +52,31 @@ module.exports = function (app) {
     });
 
    //=============POSTING AND DELETING NOTES==========
-    //  * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+    //  * POST `/api/notes` - New note saves on req body, add it to `db.json` file, return  new note to client.
     // ---------------------------------------------------------------------------
 
     app.post("/api/notes", function (req, res) {
-        console.log("yo")
-        // fs.appendFile(path.join(__dirname, "../public/notes.html"), "utf8", function (error, data) {
-        //     if (error) {
-        //         return console.log(error);
-        //     }
-        //     console.log(data);
-        //     res.json(data)
-        // })
+        return res.json(dbNotes);
     });
-   
 
-// fs.appendFile('test.txt', 'Hello World!', function (err) { 
-//                         if (err)
-//         console.log(err);
-//                         else
-//         console.log('Append operation complete.');
-// });
+    //============POST, DELETE
 
-    // app.post("/api/notes", function(req, res) {
-    //     let newNote = req.body;
-    //     let id = dbNotes.length;
-    //     newNote.id = id + 1;
-    //     dbNotes.push(newNote);
-    //     dbUpdate(dbNotes);
-    //     return res.json(dbNotes);
-    //     });
-
-    //     app.delete("/api/notes/:id", (req, res) => {
-    //     let id = req.params.id;
-    //     let x = 1;
-    //     delete dbNotes[id - 1];
-    //     dbUpdate(dbNotes);
-    //     res.send(dbNotes);
-    //     });
-    // ---------------------------------------------------------------------------
-    // I added this below code so you could clear out the table while working with the functionality.
-    // Don"t worry about it!
-
-    app.post("/api/clear", function (req, res) {
-        // Empty out the arrays of data
-        tableData.length = 0;
-        waitListData.length = 0;
-
-        res.json({ ok: true });
+    app.post("/api/notes", function(req, res) {
+        let note = req.body;
+        let id = dbNotes.length;
+        note.id = id + 1;
+        dbNotes.push(note);
+        dbNewNotes(dbNotes);
+        return res.json(dbNotes);
     });
-};
+
+    app.delete("/api/notes/:id", (req, res) => {
+        let id = req.params.id;
+        let x = 1;
+        delete dbNotes[id - 1];
+        dbNewNotes(dbNotes);
+        res.send(dbNotes);
+    });
+}
+
+// module.exports = router;
