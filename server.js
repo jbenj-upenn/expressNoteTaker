@@ -1,14 +1,11 @@
-const express = require("express");
+var express = require("express");
 
-let app = express();
+var app = express();
 
-const PORT = process.env.PORT || 3600;
+var PORT = process.env.PORT || 3600;
 
 const { v4: uuidv4 } = require('uuid');
 uuidv4(); 
-
-let db = require("./db/db.json")
-
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
