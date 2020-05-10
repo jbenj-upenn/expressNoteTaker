@@ -1,14 +1,20 @@
-var express = require("express");
+const express = require("express");
 
-var app = express();
+let app = express();
 
-var PORT = process.env.PORT || 3600;
+const PORT = process.env.PORT || 3600;
+
+const { v4: uuidv4 } = require('uuid');
+uuidv4(); 
+
+let db = require("./db/db.json")
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static('public'))
+
 
 // ================================================================================
 // ROUTER

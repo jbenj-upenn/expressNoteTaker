@@ -1,5 +1,5 @@
 // ===============================================================================
-// REQUIRE FS
+// REQUIRES
 //========================================================
 const fs = require('fs')
 const path = require("path")
@@ -33,7 +33,7 @@ module.exports = function (app) {
             console.log(data);
             res.json(data)
         })
-        // read()
+        read()
     });
 
    //=============POSTING AND DELETING NOTES==========
@@ -41,7 +41,6 @@ module.exports = function (app) {
     // ---------------------------------------------------------------------------
 
     app.post("/api/notes", function (req, res) {
-        console.log(req.body)
         console.log("yo")
         // fs.appendFile(path.join(__dirname, "../public/notes.html"), "utf8", function (error, data) {
         //     if (error) {
