@@ -119,7 +119,7 @@ var renderNoteList = function(notes) {
     );
 
     $li.append($span, $delBtn);
-    noteListItems.push($li);
+    noteListItems.unshift($li); //using the unshift method to attach new items at the top of the page
   }
 
   $noteList.append(noteListItems);
@@ -128,6 +128,7 @@ var renderNoteList = function(notes) {
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function() {
   return getNotes().then(function(data) {
+    // console.log("this is response from getNotes", data)
     renderNoteList(data);
   });
 };

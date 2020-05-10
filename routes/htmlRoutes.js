@@ -16,13 +16,13 @@ module.exports = function(app) {
   });
 
   //=======GET CALL FOR CSS AND JS PAGES 
-  // app.get("./public/assets/css/styles.css", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/assets/css/styles.css"));
-  //   });
+  app.get("./public/assets/css/styles.css", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/assets/css/styles.css"));
+    });
 
-  //   app.get("./public/assets/js/index.js", function(req, res) {
-  //       res.sendFile(path.join(__dirname, "../public/assets/js/index.js"));
-  //       });
+    app.get("./public/assets/js/index.js", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/assets/js/index.js"));
+        });
 
   // If no matching route is found default to home
   app.get("*", function(req, res) {
