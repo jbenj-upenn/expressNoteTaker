@@ -2,8 +2,9 @@
 // REQUIRES
 //========================================================
 
-const fs = require('fs')
-const path = require("path")
+const fs = require('fs');
+const path = require("path");
+var express = require("express");
 // const express = require("express").Router();
 
 function read() {
@@ -46,7 +47,7 @@ module.exports = function (app) {
                 return console.log(error);
             }
             console.log(data);
-            res.json(data)
+            res.json(JSON.parse(data))
         })
         read()
     });
@@ -55,15 +56,15 @@ module.exports = function (app) {
     //  * POST `/api/notes` - New note saves on req body, add it to `db.json` file, return  new note to client.
     // ---------------------------------------------------------------------------
 
-    app.post("/api/notes", function (req, res) {
-        return res.json(dbNotes);
-    });
+    // app.post("/api/notes", function (req, res) {
+    //     return res.json(dbNotes);
+    // });
 
     //============POST, DELETE
 
     app.post("/api/notes", function(req, res) {
         let note = req.body;
-        let id = dbNotes.length;
+        let id = dbNotes[dbNotes.length -1].id;
         note.id = id + 1;
         dbNotes.push(note);
         dbNewNotes(dbNotes);
