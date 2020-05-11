@@ -13,7 +13,7 @@ Future implementations will include
 -further refinement of functionality, especially adding an "Enter" button function that allows the user's note to be saved that way, rather than having to click on the "save" icon
 -display properties, including color changes and bringing the "save" and "write note" icons closer to the input areas. 
 
-#HELP!
+# HELP!
 
 I will post a video ASAP showing how the app works *perfectly* in the localhost that I've set up, but suddenly malfunctions after being deployed to Heroku. Specifically, on Heroku, after adding notes and attempting to delete one, *all* of the items get deleted. When adding a new item then, they all return to the sidebar on the left. Click delete on one, they all disappear again, add a new one, they all return, *ad infinitum/nauseum*. Any help with this functionality would be greatly appreciated. Please see the apiRoute file in the Routes folder, specifically code lines 81-96 (I think).
 
@@ -23,7 +23,7 @@ HTML
 CSS-Bootstrap
 JavaScript
 jQuery - Javascript libraries.
-Nodejs: Express, FS, Nodemon
+Nodejs NPM packages: Express, FS, Nodemon
 JSON
 
 ## Back-end Testing
