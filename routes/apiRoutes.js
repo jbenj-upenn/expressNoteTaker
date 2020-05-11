@@ -55,7 +55,7 @@ module.exports = function (app) {
                 console.log(data);
                 return res.json(JSON.parse(data))
             })
-            read()
+            // read()
         });
 
         //=============POSTING AND DELETING NOTES==========
@@ -79,20 +79,28 @@ module.exports = function (app) {
         });
 
         app.delete("/api/notes/:id", (req, res) => {
-            let dbNotes = fs.readFileSync(path.join(__dirname, "../db/db.json"));
-            dbNotes = JSON.parse(dbNotes);
-            const delId = req.params.id;
-            //created a new const to put the delete function into in order to fix async/sync issues
-            let newNotes = dbNotes.filter(element=>element.id!=delId); //functionality
-            //dbNotes.filter(function(note){
-                // if(note.id!=id){
-                //     return true;
-                // }else{
-                //     return false;
-                // }
-            // })
-            writeNewNotes(newNotes);
-            res.send(true);
+        
+                    // let dbNotes = await fs.readFile(path.join(__dirname, "../db/db.json"));
+                     fs.readFile(path.join(__dirname, "../db/db.json"), (err, data)=>{
+                         const dbNotes = JSON.parse(data);
+                         const delId = req.params.id;
+                         //created a new const to put the delete function into in order to fix async/sync issues
+                         const newNotes = dbNotes.filter(element=>element.id!=delId); //functionality
+                         //dbNotes.filter(function(note){
+                             // if(note.id!=id){
+                             //     return true;
+                             // }else{
+                             //     return false;
+                             // }
+                         // })
+                         console.log('updated notes',newNotes)
+                          writeNewNotes(newNotes);
+                         res.send(true);
+
+                     });
+
+            
+          
         });
     }
 
