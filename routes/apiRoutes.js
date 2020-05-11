@@ -50,7 +50,7 @@ module.exports = function (app) {
                     return console.log(error);
                 }
                 console.log(data);
-                res.json(JSON.parse(data))
+                return res.json(JSON.parse(data))
             })
             read()
         });
@@ -78,7 +78,8 @@ module.exports = function (app) {
         app.delete("/api/notes/:id", (req, res) => {
             let id = req.params.id;
             let x = 1;
-            delete dbNotes[id - 1];
+            console.log("note being deleted", dbNotes[id - 1])
+            delete dbNotes[id - 1]; //functionality
             dbNewNotes(dbNotes);
             res.send(dbNotes);
         });
