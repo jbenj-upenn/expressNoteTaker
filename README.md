@@ -44,6 +44,10 @@ Enormous thanks to my bootcamp Teaching Assistant, Artan "Tani" Muzhaqi, and a L
 Tons of thanks to my classmates for their feedback and guidance: Eric Donovan, Giannis Foster-Sporidis, Joseph Dvorak, Adam Parsons, and Stephen Miller.
 
 # Images
+
 ## Front Page
+![noteTakingAppFrontPage](https://user-images.githubusercontent.com/59940368/81519355-f8ba3700-930e-11ea-99db-1ae5e7427a90.png)
 
 ## Usage
+![noteTakingApp1](https://user-images.githubusercontent.com/59940368/81519350-f48e1980-930e-11ea-9890-5b74f06dbbd1.png)
+
