@@ -74,9 +74,9 @@ var handleNoteDelete = function(event) {
   if (activeNote.id === note.id) {
     activeNote = {};
   }
-console.log("this is your notes id", note.id)
+// console.log("this is your notes id", note.id)
   deleteNote(note.id).then(function(res) {
-    console.log(res)
+    // console.log(res)
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -129,7 +129,7 @@ var renderNoteList = function(notes) {
 // Gets notes from the db and renders them to the sidebar
 var getAndRenderNotes = function() {
   return getNotes().then(function(data) {
-    console.log("this is response from getNotes", data)
+    // console.log("this is response from getNotes", data)
     renderNoteList(data);
   });
 };
