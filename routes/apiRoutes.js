@@ -25,7 +25,7 @@ const dbNotes = JSON.parse(
     })
 );
 
-const dbNewNotes = dbNotes => {
+const writeNewNotes = dbNotes => {
     fs.writeFileSync(
         path.join(__dirname, "../db/db.json"),
         JSON.stringify(dbNotes),
@@ -70,18 +70,23 @@ module.exports = function (app) {
             let id = dbNotes[dbNotes.length - 1].id;
             note.id = id + 1;
             dbNotes.push(note);
-            dbNewNotes(dbNotes);
+            writeNewNotes(dbNotes);
             // res.send(dbNotes);
             return res.json(dbNotes);
         });
 
         app.delete("/api/notes/:id", (req, res) => {
             let id = req.params.id;
-            let x = 1;
-            console.log("note being deleted", dbNotes[id - 1])
-            delete dbNotes[id - 1]; //functionality
-            dbNewNotes(dbNotes);
-            res.send(dbNotes);
+            const newNotes = dbNotes.filter(note=>note.id!=id); //functionality
+            //dbNotes.filter(function(note){
+                // if(note.id!=id){
+                //     return true;
+                // }else{
+                //     return false;
+                // }
+            // })
+            writeNewNotes(newNotes);
+            res.send(true);
         });
     }
 
