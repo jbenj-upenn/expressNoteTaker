@@ -28,7 +28,7 @@ const dbNotes = JSON.parse(
     })
 );
 
-const writeNewNotes = dbNotes => {
+const writeNewNotes = async (dbNotes) => {
     fs.writeFileSync(
         path.join(__dirname, "../db/db.json"),
         JSON.stringify(dbNotes),
@@ -93,9 +93,16 @@ module.exports = function (app) {
                              //     return false;
                              // }
                          // })
-                         console.log('updated notes',newNotes)
-                          writeNewNotes(newNotes);
-                         res.send(true);
+
+                         fs.writeFile(path.join(__dirname, "../db/db.json"),JSON.stringify(newNotes), err => {
+                                if (err) throw err;
+                                res.send(true)
+                            }
+                        );
+
+                        //  console.log('updated notes',newNotes)
+                        //   writeNewNotes(newNotes);
+                        //  res.send(true);
 
                      });
 
