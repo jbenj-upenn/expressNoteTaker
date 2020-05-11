@@ -1,1 +1,1 @@
-[{"title":"Test Title","text":"Test text"},{"title":"dbNotes","text":"something","id":null}]
+[{"title":"Test Title","text":"Test text"}, {"title":"Note-Taking App","text":"Write a half-decent README to let people know what's going on here. ","id":1},{"title":"Screenshots","text":"Include screenshots in the README; maybe take one now","id":2},{"title":"Future note-taking ","text":"For fun, change style, investigate how \"enter\" can submit a note\n","id":3}]
