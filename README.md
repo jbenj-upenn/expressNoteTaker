@@ -1,7 +1,7 @@
 # Note-Taking App
 ## Express
 
-You can also access the app here: 
+You can access the app here: https://expressnotetaker-jbenj.herokuapp.com/
 
 # Description
 This is an application that allows users to write, save, and delete notes. It utilizes an express backend and saves and recalls note data from a JSON file.
