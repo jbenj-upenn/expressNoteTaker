@@ -5,6 +5,9 @@
 const fs = require('fs');
 const path = require("path");
 var express = require("express");
+//const that randomizes id numbers
+const crypto = require("crypto")
+const id = crypto.randomBytes(16).toString("hex");
 // const express = require("express").Router();
 
 function read() {
@@ -67,8 +70,8 @@ module.exports = function (app) {
 
         app.post("/api/notes", function (req, res) {
             let note = req.body;
-            let id = dbNotes[dbNotes.length - 1].id;
-            note.id = id + 1;
+            // let id = dbNotes[dbNotes.length - 1].id;
+            req.body.id = id;
             dbNotes.push(note);
             writeNewNotes(dbNotes);
             // res.send(dbNotes);
@@ -76,9 +79,9 @@ module.exports = function (app) {
         });
 
         app.delete("/api/notes/:id", (req, res) => {
-            let id = req.params.id;
+            let delId = req.params.id;
             //created a new const to put the delete function into in order to fix async/sync issues
-            const newNotes = dbNotes.filter(note=>note.id!=id); //functionality
+            const newNotes = dbNotes.filter(note=>note.id!=delId); //functionality
             //dbNotes.filter(function(note){
                 // if(note.id!=id){
                 //     return true;
