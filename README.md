@@ -24,6 +24,19 @@ https://drive.google.com/file/d/1Zy8LDY5kECwxlBtOTm2xci3h8435Ir_e/view
 
 Specifically, on Heroku, after adding notes and attempting to delete one, *all* of the items get deleted. When adding a new item then, they all return to the sidebar on the left. Click delete on one, they all disappear again, add a new one, they all return, *ad infinitum/nauseum*. Any help with this functionality would be greatly appreciated. Please see the apiRoute file in the Routes folder, specifically code lines 81-96 (I think).
 
+# UPDATE: "HELP!" SOLVED
+
+Essentially, this bit of CRYPTO code was constantly generating new IDs on the local host, but only once when deploying to Heroku. I noticed this while doing a console.log in both scenarios, the former displaying various, random IDs for each item, the latter (i.e., the deployed app in Heroku) displaying the *same* random ID for all items. Tani (see Acknowledgements below) realized that Heroku was only creating *one* random ID, so we moved that bit of code (see the following three images) and got the deployed app working properly. 
+ 
+### Code Image 1
+
+
+### Code Image 2
+
+
+### Code Image 3
+
+
 ## Built With
 Visual Studio Code:
 HTML
