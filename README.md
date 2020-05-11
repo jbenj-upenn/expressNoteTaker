@@ -15,7 +15,14 @@ Future implementations will include
 
 # HELP!
 
-I will post a video ASAP showing how the app works *perfectly* in the localhost that I've set up, but suddenly malfunctions after being deployed to Heroku. Specifically, on Heroku, after adding notes and attempting to delete one, *all* of the items get deleted. When adding a new item then, they all return to the sidebar on the left. Click delete on one, they all disappear again, add a new one, they all return, *ad infinitum/nauseum*. Any help with this functionality would be greatly appreciated. Please see the apiRoute file in the Routes folder, specifically code lines 81-96 (I think).
+Here is a video ASAP showing how the app works *perfectly* in the localhost that I've set up, yet suddenly malfunctions after being deployed to Heroku.
+
+### Video Link on Google Drive
+
+https://drive.google.com/file/d/1Zy8LDY5kECwxlBtOTm2xci3h8435Ir_e/view
+
+
+Specifically, on Heroku, after adding notes and attempting to delete one, *all* of the items get deleted. When adding a new item then, they all return to the sidebar on the left. Click delete on one, they all disappear again, add a new one, they all return, *ad infinitum/nauseum*. Any help with this functionality would be greatly appreciated. Please see the apiRoute file in the Routes folder, specifically code lines 81-96 (I think).
 
 ## Built With
 Visual Studio Code:
