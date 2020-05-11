@@ -7,7 +7,7 @@ const path = require("path");
 var express = require("express");
 //const that randomizes id numbers
 const crypto = require("crypto")
-const id = crypto.randomBytes(16).toString("hex");
+// const id = crypto.randomBytes(16).toString("hex");
 // const express = require("express").Router();
 
 function read() {
@@ -71,7 +71,7 @@ module.exports = function (app) {
         app.post("/api/notes", function (req, res) {
             let note = req.body;
             // let id = dbNotes[dbNotes.length - 1].id;
-            req.body.id = id;
+            req.body.id = crypto.randomBytes(16).toString("hex");
             dbNotes.push(note);
             writeNewNotes(dbNotes);
             // res.send(dbNotes);
