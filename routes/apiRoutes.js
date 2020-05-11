@@ -81,7 +81,7 @@ module.exports = function (app) {
         app.delete("/api/notes/:id", (req, res) => {
             let delId = req.params.id;
             //created a new const to put the delete function into in order to fix async/sync issues
-            const newNotes = dbNotes.filter(note=>note.id!=delId); //functionality
+            const newNotes = dbNotes.filter(element=>element.id!=delId); //functionality
             //dbNotes.filter(function(note){
                 // if(note.id!=id){
                 //     return true;
