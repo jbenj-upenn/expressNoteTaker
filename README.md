@@ -30,12 +30,15 @@ Essentially, this bit of CRYPTO code was constantly generating new IDs on the lo
  
 ### Code Image 1
 
+![crypto1](https://user-images.githubusercontent.com/59940368/81623619-0086e380-93c2-11ea-9624-203d9b951698.png)
 
 ### Code Image 2
 
+![crypto2](https://user-images.githubusercontent.com/59940368/81623620-0381d400-93c2-11ea-9b50-d8bc34b1f286.png)
 
 ### Code Image 3
 
+![crypto3](https://user-images.githubusercontent.com/59940368/81623626-07adf180-93c2-11ea-91b2-5221947bd589.png)
 
 ## Built With
 Visual Studio Code:
